@@ -6,13 +6,15 @@
 #    By: fbrisson <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/01 17:49:55 by fbrisson          #+#    #+#              #
-#    Updated: 2022/11/23 15:14:14 by fbrisson         ###   ########.fr        #
+#    Updated: 2022/11/24 16:41:59 by fbrisson         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRC = ft_printf.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_strlen.c ft_strdup.c ft_putnbr_base.c
+SRC = ft_itoa.c ft_printf.c ft_print_hex.c ft_printnbr.c \
+	ft_printptr.c ft_printstr.c ft_print_unsigned.c \
+	ft_putchar.c
 
 OBJ = ${SRC:.c=.o}
 
@@ -27,7 +29,7 @@ ${NAME}: ${OBJ}
 clean:
 	rm -f ${OBJ} ${BONUS_OBJ}
 
-fclean:
+fclean: clean
 	rm -f ${NAME}
 
 re : fclean all

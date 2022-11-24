@@ -6,11 +6,11 @@
 /*   By: fbrisson <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 13:49:05 by fbrisson          #+#    #+#             */
-/*   Updated: 2022/11/24 15:51:13 by fbrisson         ###   ########.fr       */
+/*   Updated: 2022/11/24 16:50:07 by fbrisson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	ft_num_len(unsigned int num)
 {

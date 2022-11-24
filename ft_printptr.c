@@ -6,11 +6,11 @@
 /*   By: fbrisson <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:44:29 by fbrisson          #+#    #+#             */
-/*   Updated: 2022/11/24 15:49:04 by fbrisson         ###   ########.fr       */
+/*   Updated: 2022/11/24 16:48:05 by fbrisson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	ft_ptr_len(uintptr_t num)
 {
@@ -65,6 +65,7 @@ int	main(void)
 {
 	char	*tab;
 
+	tab = malloc(sizeof(*tab));
 	ft_printptr((unsigned long long)tab);
 	printf("\n%p", tab);
 	return (0);

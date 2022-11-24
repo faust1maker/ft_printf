@@ -6,11 +6,11 @@
 /*   By: fbrisson <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:07:29 by fbrisson          #+#    #+#             */
-/*   Updated: 2022/11/24 15:54:53 by fbrisson         ###   ########.fr       */
+/*   Updated: 2022/11/24 16:47:35 by fbrisson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_tri_selectif(va_list ptr_args, const char format)
 {
@@ -18,21 +18,20 @@ int	ft_tri_selectif(va_list ptr_args, const char format)
 
 	print_len = 0;
 	if (format == 'c')
-		print_len += ft_putchar(va_arg(args, int));
+		print_len += ft_putchar(va_arg(ptr_args, int));
 	else if (format == 's')
-		print_len += ft_printstr(va_arg(args, char *));
+		print_len += ft_printstr(va_arg(ptr_args, char *));
 	else if (format == 'p')
-		print_len += ft_printptr(va_arg(args, unsigned long long));
+		print_len += ft_printptr(va_arg(ptr_args, unsigned long long));
 	else if (format == 'd' || format == 'i')
-		print_len += ft_printnbr(va_arg(args, int));
+		print_len += ft_printnbr(va_arg(ptr_args, int));
 	else if (format == 'u')
-		print_len += ft_print_unsigned(va_arg(args, unsigned int));
+		print_len += ft_print_unsigned(va_arg(ptr_args, unsigned int));
 	else if (format == 'x' || format == 'X')
-		print_len += ft_print_hex(va_arg(args, unsigned int), format);
+		print_len += ft_print_hex(va_arg(ptr_args, unsigned int), format);
 	else if (format == '%')
 		print_len += ft_printpercent();
-	else
-		return (print_len);
+	return (print_len);
 }
 
 int	ft_printf(const char *s, ...)

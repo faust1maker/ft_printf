@@ -6,11 +6,39 @@
 /*   By: fbrisson <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 15:47:36 by fbrisson          #+#    #+#             */
-/*   Updated: 2022/11/24 11:36:51 by fbrisson         ###   ########.fr       */
+/*   Updated: 2022/11/24 16:47:16 by fbrisson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
+
+static int	ft_strlen(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+static char	*ft_strdup(const char *s)
+{
+	char	*sdup;
+	int		i;
+
+	sdup = malloc(sizeof(*sdup) * (ft_strlen(s) + 1));
+	if (!sdup)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		sdup[i] = s[i];
+		i++;
+	}
+	sdup[i] = '\0';
+	return (sdup);
+}
 
 static char	*int_fixer(int n, int i, int sign)
 {
@@ -62,8 +90,6 @@ char	*ft_itoa(int n)
 }
 
 /*
-
-#include <limits.h>
 
 int	main(void)
 {
