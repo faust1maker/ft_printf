@@ -1,60 +1,62 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printptr.c                                      :+:      :+:    :+:   */
+/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbrisson <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 10:44:29 by fbrisson          #+#    #+#             */
-/*   Updated: 2022/11/24 13:59:03 by fbrisson         ###   ########.fr       */
+/*   Created: 2022/11/24 13:49:05 by fbrisson          #+#    #+#             */
+/*   Updated: 2022/11/24 15:11:34 by fbrisson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_ptr_len(uintptr_t num)
+int	ft_num_len(unsigned int num)
 {
 	int	len;
 
 	len = 0;
 	while (num != 0)
 	{
-		num /= 16;
+		num /= 10;
 		len++;
 	}
 	return (len);
 }
 
-void	ft_putptr(uintptr_t num)
+char	*ft_itoa_unsigned(unsigned int n)
 {
-	if (num >= 16)
+	char	*num;
+	int		len;
+
+	len = ft_num_len(n);
+	num = malloc(sizeof(*num) * (len + 1));
+	if (!num)
+		return (NULL);
+	num[len] = '\0';
+	while (n != 0)
 	{
-		ft_putptr(num / 16);
-		ft_putptr(num % 16);
+		num[len - 1] = n % 10 + 48;
+		n /= 10;
+		len--;
 	}
-	else
-	{
-		if (num <= 9)
-			ft_putchar(num + '0');
-		else
-			ft_putchar(num - 10 + 'a');
-	}
+	return (num);
 }
 
-int	ft_printptr(unsigned long long ptr)
+int	ft_print_unsigned(unsigned int n)
 {
-	int	print_len;
+	char	*num;
+	int		print_len;
 
 	print_len = 0;
-	if (ptr == 0)
-	{
-		print_len += write(1, "(nil)", 5);
-	}
+	if (n == 0)
+		print_len += write(1, "0", 1);
 	else
 	{
-		print_len += write(1, "0x", 2);
-		ft_putptr(ptr);
-		print_len += ft_ptr_len(ptr);
+		num = ft_itoa_unsigned(n);
+		print_len += ft_printstr(num);
+		free(num);
 	}
 	return (print_len);
 }
@@ -63,9 +65,6 @@ int	ft_printptr(unsigned long long ptr)
 
 int	main(void)
 {
-	char	*tab;
-
-	ft_printptr((unsigned long long)tab);
-	printf("\n%p", tab);
+	printf("%d", ft_print_unsigned(12345));
 	return (0);
 }*/

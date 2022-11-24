@@ -6,7 +6,7 @@
 /*   By: fbrisson <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:07:29 by fbrisson          #+#    #+#             */
-/*   Updated: 2022/11/24 10:59:58 by fbrisson         ###   ########.fr       */
+/*   Updated: 2022/11/24 15:14:37 by fbrisson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,19 @@ int	tri_selectif(va_list ptr_args, const char format)
 
 	print_len = 0;
 	if (format == 'c')
-		print_len = ft_putchar(va_arg(args, int));
+		print_len += ft_putchar(va_arg(args, int));
 	else if (format == 's')
-		print_len = ft_printstr(va_arg(args, char *));
+		print_len += ft_printstr(va_arg(args, char *));
 	else if (format == 'p')
-		print_len = ft_printptr(va_arg(args, unsigned long long));
-	else if (format == 'd' || c == 'i')
-		print_len = ft_putnbr(va_arg((int));
+		print_len += ft_printptr(va_arg(args, unsigned long long));
+	else if (format == 'd' || format == 'i')
+		print_len += ft_printnbr(va_arg(args, int));
 	else if (format == 'u')
-		print_len = ft_putnbr(va_arg((int), len));
-	else if (format == 'x')
-		print_len = ft_putnbr_hex(va_arg((int), c);
-	else if (format == 'X')
-		print_len = ft_putnbr_hex(va_arg((int), c));
+		print_len += ft_print_unsigned(va_arg(args, unsigned int));
+	else if (format == 'x'|| format == 'X')
+		print_len += ft_print_hex(va_arg(args, unsigned int), format);
 	else if (format == '%')
-		print_len = ft_printpercent();
+		print_len += ft_printpercent();
 	else
 		return (print_len);
 }
