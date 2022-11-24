@@ -6,13 +6,13 @@
 /*   By: fbrisson <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 13:49:05 by fbrisson          #+#    #+#             */
-/*   Updated: 2022/11/24 15:11:34 by fbrisson         ###   ########.fr       */
+/*   Updated: 2022/11/24 15:51:13 by fbrisson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_num_len(unsigned int num)
+static int	ft_num_len(unsigned int num)
 {
 	int	len;
 
@@ -25,7 +25,7 @@ int	ft_num_len(unsigned int num)
 	return (len);
 }
 
-char	*ft_itoa_unsigned(unsigned int n)
+static char	*ft_itoa_unsigned(unsigned int n)
 {
 	char	*num;
 	int		len;

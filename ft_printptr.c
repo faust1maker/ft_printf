@@ -6,13 +6,13 @@
 /*   By: fbrisson <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:44:29 by fbrisson          #+#    #+#             */
-/*   Updated: 2022/11/24 13:59:03 by fbrisson         ###   ########.fr       */
+/*   Updated: 2022/11/24 15:49:04 by fbrisson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_ptr_len(uintptr_t num)
+static int	ft_ptr_len(uintptr_t num)
 {
 	int	len;
 
@@ -25,7 +25,7 @@ int	ft_ptr_len(uintptr_t num)
 	return (len);
 }
 
-void	ft_putptr(uintptr_t num)
+static void	ft_putptr(uintptr_t num)
 {
 	if (num >= 16)
 	{

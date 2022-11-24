@@ -6,13 +6,13 @@
 /*   By: fbrisson <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:07:29 by fbrisson          #+#    #+#             */
-/*   Updated: 2022/11/24 15:14:37 by fbrisson         ###   ########.fr       */
+/*   Updated: 2022/11/24 15:54:53 by fbrisson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	tri_selectif(va_list ptr_args, const char format)
+int	ft_tri_selectif(va_list ptr_args, const char format)
 {
 	int	print_len;
 
@@ -27,7 +27,7 @@ int	tri_selectif(va_list ptr_args, const char format)
 		print_len += ft_printnbr(va_arg(args, int));
 	else if (format == 'u')
 		print_len += ft_print_unsigned(va_arg(args, unsigned int));
-	else if (format == 'x'|| format == 'X')
+	else if (format == 'x' || format == 'X')
 		print_len += ft_print_hex(va_arg(args, unsigned int), format);
 	else if (format == '%')
 		print_len += ft_printpercent();
@@ -37,9 +37,9 @@ int	tri_selectif(va_list ptr_args, const char format)
 
 int	ft_printf(const char *s, ...)
 {
-	va_list ptr_args;
-	int	i;
-	int	print_len;
+	va_list	ptr_args;
+	int		i;
+	int		print_len;
 
 	i = 0;
 	print_len = 0;
@@ -49,7 +49,7 @@ int	ft_printf(const char *s, ...)
 		if (s[i] == '%')
 		{
 			i++;
-			print_len = tri_selectif(ptr_args, s[i]);
+			print_len = ft_tri_selectif(ptr_args, s[i]);
 		}
 		else
 			print_len = ft_putchar(s[i]);
