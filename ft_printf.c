@@ -6,7 +6,7 @@
 /*   By: fbrisson <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:07:29 by fbrisson          #+#    #+#             */
-/*   Updated: 2022/11/24 09:43:58 by fbrisson         ###   ########.fr       */
+/*   Updated: 2022/11/24 10:59:58 by fbrisson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	tri_selectif(va_list ptr_args, const char format)
 	else if (format == 's')
 		print_len = ft_printstr(va_arg(args, char *));
 	else if (format == 'p')
-		print_len = ft_putnbr_hex(va_arg(void *));
+		print_len = ft_printptr(va_arg(args, unsigned long long));
 	else if (format == 'd' || c == 'i')
 		print_len = ft_putnbr(va_arg((int));
 	else if (format == 'u')
@@ -32,7 +32,7 @@ int	tri_selectif(va_list ptr_args, const char format)
 	else if (format == 'X')
 		print_len = ft_putnbr_hex(va_arg((int), c));
 	else if (format == '%')
-		print_len = ft_putchar(va_arg((char)));
+		print_len = ft_printpercent();
 	else
 		return (print_len);
 }
