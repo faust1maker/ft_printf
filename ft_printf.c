@@ -6,7 +6,7 @@
 /*   By: fbrisson <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:07:29 by fbrisson          #+#    #+#             */
-/*   Updated: 2022/11/24 16:47:35 by fbrisson         ###   ########.fr       */
+/*   Updated: 2022/11/24 16:59:59 by fbrisson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ int	ft_printf(const char *s, ...)
 		if (s[i] == '%')
 		{
 			i++;
-			print_len = ft_tri_selectif(ptr_args, s[i]);
+			print_len += ft_tri_selectif(ptr_args, s[i]);
 		}
 		else
-			print_len = ft_putchar(s[i]);
+			print_len += ft_putchar(s[i]);
 		i++;
 	}
 	va_end(ptr_args);
