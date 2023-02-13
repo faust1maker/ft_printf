@@ -6,13 +6,13 @@
 /*   By: fbrisson <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:44:29 by fbrisson          #+#    #+#             */
-/*   Updated: 2022/11/24 16:48:05 by fbrisson         ###   ########.fr       */
+/*   Updated: 2022/12/02 10:30:52 by fbrisson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_ptr_len(uintptr_t num)
+static int	ft_ptr_len(unsigned long num)
 {
 	int	len;
 
@@ -25,7 +25,7 @@ static int	ft_ptr_len(uintptr_t num)
 	return (len);
 }
 
-static void	ft_putptr(uintptr_t num)
+static void	ft_putptr(unsigned long num)
 {
 	if (num >= 16)
 	{
@@ -41,7 +41,7 @@ static void	ft_putptr(uintptr_t num)
 	}
 }
 
-int	ft_printptr(unsigned long long ptr)
+int	ft_printptr(unsigned long ptr)
 {
 	int	print_len;
 

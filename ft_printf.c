@@ -6,7 +6,7 @@
 /*   By: fbrisson <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:07:29 by fbrisson          #+#    #+#             */
-/*   Updated: 2022/11/24 16:59:59 by fbrisson         ###   ########.fr       */
+/*   Updated: 2022/12/02 11:27:31 by fbrisson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_tri_selectif(va_list ptr_args, const char format)
 	else if (format == 's')
 		print_len += ft_printstr(va_arg(ptr_args, char *));
 	else if (format == 'p')
-		print_len += ft_printptr(va_arg(ptr_args, unsigned long long));
+		print_len += ft_printptr(va_arg(ptr_args, unsigned long));
 	else if (format == 'd' || format == 'i')
 		print_len += ft_printnbr(va_arg(ptr_args, int));
 	else if (format == 'u')
